@@ -8,7 +8,6 @@ body{
     -webkit-text-stroke: 2px red; 
     font-weight: bold;
     font-size: 60px;
-   
 }
 
 #start{
@@ -20,8 +19,13 @@ body{
     height: 700px;
     background-color: aliceblue;
     font-size: 30px;
-    
-    
+}
+
+#endScreen{
+    width: 100%;
+    height: 700px;
+    background-color: aliceblue;
+    font-size: 30px;
 }
 
 #time{

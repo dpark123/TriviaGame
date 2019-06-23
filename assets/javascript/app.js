@@ -62,7 +62,8 @@ var answerKey = [2, 0, 1, 0];
 var currentAnswer = answerKey[currentQuestion];
 var guessesCorrect = 0;
 var seconds = 30;
-
+var picCorrect = ["./assets/images/spider-man-pics/goodjob.jpg", "./assets/images/spider-man-pics/neat.gif", "./assets/images/spider-man-pics/youagenius.jpeg", "./assets/images/spider-man-pics/teachin.png"];
+var picIncorrect = ["./assets/images/spider-man-pics/you.gif", "./assets/images/spider-man-pics/prancing.png", "./assets/images/spider-man-pics/umad.png", "./assets/images/spider-man-pics/dabois.jpg"];
 console.log(answers[1][2]);
 
 $(document).ready(function () {
@@ -77,14 +78,12 @@ $(document).ready(function () {
 $("#start").click(function () {
     //intervalId = setInterval(count, 1000);
     newQuestion();
-
-
 })
 
-
+var timeOutInterval;
 
 function newQuestion() {
-
+    //timeOutInterval = setTimeout(newQuestion, 35000);
     console.log(currentQuestion);
     if (currentQuestion == 4) {
         $("#main").hide();
@@ -104,11 +103,12 @@ function newQuestion() {
 
 }
 
-setTimeout(newQuestion, 35000);
+
 
 //$(document).ready(function () {
 $("#answerList").on('click', 'button', function (e) {
     console.log("It worked");
+    //clearInterval(timeOutInterval);
     var idClicked = e.target.id;
     console.log(idClicked);
     //if user guess correctly
@@ -144,9 +144,11 @@ function resultTimeOut(e) {
         clearInterval(intervalId);
         //seconds = 30;
         $("#results").show();
+        $("#currentQuestion").hide();
         $("#correctAnswer").show();
         $("#status").html("Out of Time!");
         $("#correctAnswer").html("The Correct Answer was: " + answers[currentQuestion][answerKey[currentQuestion]]);
+        $("#meme").html("<img src=" + picIncorrect[currentQuestion] + " width='400px'>");
         currentQuestion++;
         setTimeout(newQuestion, 5000);
 
@@ -168,7 +170,16 @@ function count() {
 }
 
 function resultScreen() {
-    $("#final").html("you got " + guessesCorrect + " out of " + questions.length + " questions correct");
+    $("#endScreen").show();
+    if(guessesCorrect>2){
+        $("#final").html("You got " + guessesCorrect + " out of " + questions.length + " questions correct!" + "<br>" + "Good job!");
+        $("#final-pic").html("<img src='./assets/images/spider-man-pics/impressed.png' width='400px'>");
+    }
+    else{
+        $("#final").html("You got " + guessesCorrect + " out of " + questions.length + " questions correct!" + "<br>" + "Better luck next time!");
+        $("#final-pic").html("<img src='./assets/images/spider-man-pics/arachnids.png' width='400px'>");
+
+    }
 }
 
 
@@ -178,6 +189,8 @@ function resultCorrect() {
     $("#results").show();
     $("#currentQuestion").hide();
     $("#status").html("CORRECT!");
+    $("#meme").html("<img src=" + picCorrect[0] + " width='400px'>");
+    displayImage();
     //currentQuestion++;
     setTimeout(newQuestion, 5000);
 
@@ -188,16 +201,34 @@ function resultIncorrect() {
 
     clearInterval(intervalId);
     $("#results").show();
+    $("#currentQuestion").hide();
     $("#correctAnswer").show();
     $("#status").html("INCORRECT");
     $("#correctAnswer").html("The Correct Answer was: " + answers[currentQuestion][answerKey[currentQuestion]]);
    // currentQuestion++;
+    $("#meme").html("<img src=" + picIncorrect[currentQuestion] + " width='400px'>");
     setTimeout(newQuestion, 5000);
 
 
 }
 
+function displayImage() {
+   // $("#image-holder").html("<img src=" + images[count] + " width='400px'>");
+    $("#meme").html("<img src=" + picCorrect[currentQuestion] + " width='400px'>");
+   // $("#meme").html("<img src='./assets/images/spider-man-pics/goodjob.jpg' width='400px'>");
+  }
 
+function reset(){
+    currentQuestion = 0;
+    guessesCorrect = 0;
+    $("#main").show();
+    $("#endScreen").hide();
+    newQuestion();
+}
+
+$("#reset").click(function () {
+    reset();
+})
 
 // function resultTimeOut(e){
 //     if (e === 0) {
@@ -213,3 +244,4 @@ function resultIncorrect() {
 //     }
 // }
 $("#main").hide();
+$("#endScreen").hide();

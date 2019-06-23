@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 align-self-center text-center">
+            <div class="col-md-12 align-self-center text-center pl-4 pr-4 pt-4 pb-4">
                 <div id="main">
                     <div>Time Remaining: <p id="timeRemaining">30</p>
                     </div>
@@ -40,25 +40,34 @@
                         <div id="question"></div>
 
                         <div id="answerList">
-                            <button id="a0"></button><br><br>
-                            <button id="a1"></button><br><br>
-                            <button id="a2"></button><br><br>
-                            <button id="a3"></button>
+                            <br>
+                            <button class="btn btn-outline-danger btn-lg" id="a0"></button><br><br>
+                            <button class="btn btn-outline-danger btn-lg" id="a1"></button><br><br>
+                            <button class="btn btn-outline-danger btn-lg" id="a2"></button><br><br>
+                            <button class="btn btn-outline-danger btn-lg" id="a3"></button>
                         </div>
                     </div>
 
                     <div id="results">
                         <p id="status"></p>
                         <p id="correctAnswer"></p>
-                        <div id="meme"></div>
+                        <div id="meme">
+                        </div>
                     </div>
                 </div>
             </div>
 
-
+            <div class="col-md-12 align-self-center text-center">
+                <div id="endScreen">
+                    <div id="final"></div>
+                    <div id="final-pic"></div>
+                    <button class="btn btn-outline-danger btn-lg" id="reset">Try Again?</button>
+                </div>
+            </div>
 
         </div>
-        <div id="final"></div>
+
+
     </div>
 
     <script type="text/javascript" src="./assets/javascript/app.js"></script>
