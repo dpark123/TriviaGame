@@ -6,41 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    
-    <div id="title"></div>
-    <h1>Trivia!</h1>
-    <button id="start">Start</button>
+    <div class="container">
+        <div class="row">
+            <div class="col md-6 text-center">
+                <div>
+                    <img src="assets/images/spider-man-pics/title.png" width="400px" height="200px">
+                    <h1 id="triviaStyle">Trivia!</h1>
+                </div>
 
-    <div id="main">
-        <div>Time Remaining: <p id="timeRemaining">30</p>
-        </div>
-        <div id="currentQuestion">
-        
-            <div id="question"></div>
-
-            <div id="answerList">
-                <button id="a0"></button><br>
-                <button id="a1"></button><br>
-                <button id="a2"></button><br>
-                <button id="a3"></button>
             </div>
         </div>
-
-        <div id="results">
-                <p id="status"></p>
-                <p id="correctAnswer"></p>
-                <div id="meme"></div>
+        <br>
+        <div class="row">
+            <div class="col md-6 text-center">
+                <button class="btn btn-outline-danger btn-lg" id="start">Start</button>
+            </div>
         </div>
+        <div class="row">
+            <div class="col-md-12 align-self-center text-center">
+                <div id="main">
+                    <div>Time Remaining: <p id="timeRemaining">30</p>
+                    </div>
+                    <div id="currentQuestion">
 
-        
+                        <div id="question"></div>
 
+                        <div id="answerList">
+                            <button id="a0"></button><br><br>
+                            <button id="a1"></button><br><br>
+                            <button id="a2"></button><br><br>
+                            <button id="a3"></button>
+                        </div>
+                    </div>
+
+                    <div id="results">
+                        <p id="status"></p>
+                        <p id="correctAnswer"></p>
+                        <div id="meme"></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div id="final"></div>
     </div>
-    <div id="final"></div>
 
     <script type="text/javascript" src="./assets/javascript/app.js"></script>
     <script></script>
